@@ -1,0 +1,38 @@
+nohup: ignoring input
+2025/12/19 01:38:02.144 INFO [StartControllerCommand] [main] Executing command: StartController -clusterName PinotCluster -controllerHost null -controllerPort 9000 -dataDir /tmp/data/PinotController -zkAddress localhost:2181
+2025/12/19 01:38:02.283 INFO [StartServiceManagerCommand] [main] Executing command: StartServiceManager -clusterName PinotCluster -zkAddress localhost:2181 -port -1 -bootstrapServices []
+2025/12/19 01:38:02.286 INFO [StartServiceManagerCommand] [main] Starting a Pinot [SERVICE_MANAGER] at 0.945s since launch
+2025/12/19 01:38:02.290 INFO [StartServiceManagerCommand] [main] Started Pinot [SERVICE_MANAGER] instance [ServiceManager_pinot-VirtualBox_-1] at 0.949s since launch
+2025/12/19 01:38:02.297 INFO [StartServiceManagerCommand] [main] Starting a Pinot [CONTROLLER] at 0.956s since launch
+2025/12/19 01:39:04.406 ERROR [StartServiceManagerCommand] [main] Failed to start a Pinot [CONTROLLER] at 63.065 since launch
+org.apache.helix.zookeeper.zkclient.exception.ZkTimeoutException: Unable to connect to zookeeper server within timeout: 60000
+	at org.apache.helix.zookeeper.zkclient.ZkClient.connect(ZkClient.java:2673)
+	at org.apache.helix.zookeeper.zkclient.ZkClient.<init>(ZkClient.java:260)
+	at org.apache.helix.zookeeper.impl.client.ZkClient.<init>(ZkClient.java:97)
+	at org.apache.helix.zookeeper.impl.client.ZkClient.<init>(ZkClient.java:105)
+	at org.apache.helix.zookeeper.impl.factory.ZkConnectionManager.<init>(ZkConnectionManager.java:66)
+	at org.apache.helix.zookeeper.impl.factory.SharedZkClientFactory.getOrCreateZkConnectionManager(SharedZkClientFactory.java:108)
+	at org.apache.helix.zookeeper.impl.factory.SharedZkClientFactory.buildZkClient(SharedZkClientFactory.java:87)
+	at org.apache.helix.manager.zk.GenericZkHelixApiBuilder.createZkClient(GenericZkHelixApiBuilder.java:172)
+	at org.apache.helix.manager.zk.ZKHelixAdmin$Builder.build(ZKHelixAdmin.java:2342)
+	at org.apache.pinot.controller.helix.core.util.HelixSetupUtils.setupHelixClusterWithDefaultConfigs(HelixSetupUtils.java:79)
+	at org.apache.pinot.controller.BaseControllerStarter.init(BaseControllerStarter.java:231)
+	at org.apache.pinot.tools.service.PinotServiceManager.startController(PinotServiceManager.java:117)
+	at org.apache.pinot.tools.service.PinotServiceManager.startRole(PinotServiceManager.java:87)
+	at org.apache.pinot.tools.admin.command.StartServiceManagerCommand.lambda$startBootstrapServices$0(StartServiceManagerCommand.java:240)
+	at org.apache.pinot.tools.admin.command.StartServiceManagerCommand.startPinotService(StartServiceManagerCommand.java:293)
+	at org.apache.pinot.tools.admin.command.StartServiceManagerCommand.startBootstrapServices(StartServiceManagerCommand.java:239)
+	at org.apache.pinot.tools.admin.command.StartServiceManagerCommand.execute(StartServiceManagerCommand.java:183)
+	at org.apache.pinot.tools.admin.command.StartControllerCommand.execute(StartControllerCommand.java:180)
+	at org.apache.pinot.tools.Command.call(Command.java:33)
+	at org.apache.pinot.tools.Command.call(Command.java:29)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at org.apache.pinot.tools.admin.PinotAdministrator.execute(PinotAdministrator.java:174)
+	at org.apache.pinot.tools.admin.PinotAdministrator.main(PinotAdministrator.java:210)

@@ -1,0 +1,13 @@
+nohup: ignoring input
+2025/12/19 02:18:49.838 ERROR [PinotAdministrator] [main] Exception caught: 
+picocli.CommandLine$UnmatchedArgumentException: Unknown options: '-controllerHost', 'localhost', '-controllerPort', '9000'
+	at picocli.CommandLine$Interpreter.validateConstraints(CommandLine.java:13691)
+	at picocli.CommandLine$Interpreter.parse(CommandLine.java:13643)
+	at picocli.CommandLine$Interpreter.processSubcommand(CommandLine.java:13938)
+	at picocli.CommandLine$Interpreter.processArguments(CommandLine.java:13834)
+	at picocli.CommandLine$Interpreter.parse(CommandLine.java:13620)
+	at picocli.CommandLine$Interpreter.parse(CommandLine.java:13588)
+	at picocli.CommandLine$Interpreter.parse(CommandLine.java:13483)
+	at picocli.CommandLine.parseArgs(CommandLine.java:1552)
+	at org.apache.pinot.tools.admin.PinotAdministrator.execute(PinotAdministrator.java:162)
+	at org.apache.pinot.tools.admin.PinotAdministrator.main(PinotAdministrator.java:210)

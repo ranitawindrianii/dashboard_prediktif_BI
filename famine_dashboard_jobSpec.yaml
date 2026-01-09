@@ -1,0 +1,24 @@
+jobType: SegmentCreationAndTarPush
+inputDirURI: "file:/home/pinot/project_root/data"
+outputDirURI: "file:/home/pinot/project_root/output"
+overwriteOutput: true
+
+pinotClusterSpecs:
+  - controllerURI: "http://localhost:9000"
+
+tableSpec:
+  tableName: "famine_dashboard"
+  schemaURI: "file:/home/pinot/project_root/famine_dashboard_schema.json"
+  tableConfigURI: "file:/home/pinot/project_root/famine_dashboard_table.json"
+
+recordReaderSpec:
+  dataFormat: "csv"
+  className: "org.apache.pinot.plugin.inputformat.csv.CSVRecordReader"
+  configClassName: "org.apache.pinot.plugin.inputformat.csv.CSVRecordReaderConfig"
+  configs:
+    header: true
+    delimiter: ","
+
+executionFrameworkSpec:
+  name: "standalone"
+

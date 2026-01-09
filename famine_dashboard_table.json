@@ -1,0 +1,21 @@
+{
+  "tableName": "famine_dashboard",
+  "tableType": "OFFLINE",
+  "schemaName": "famine_dashboard",
+  "segmentsConfig": {
+    "timeColumnName": "bulan",
+    "timeType": "MILLISECONDS",
+    "retentionTimeUnit": "DAYS",
+    "retentionTimeValue": "365"
+  },
+  "tenants": {
+    "broker": "DefaultTenant",
+    "server": "DefaultTenant"
+  },
+  "tableIndexConfig": {
+    "invertedIndexColumns": ["kategori","pestle_factor"],
+    "loadMode": "MMAP"
+  },
+  "metadata": {}
+}
+

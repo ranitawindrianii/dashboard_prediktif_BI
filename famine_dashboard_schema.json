@@ -1,0 +1,19 @@
+{
+  "schemaName": "famine_dashboard",
+  "dimensionFieldSpecs": [
+    { "name": "kategori", "dataType": "STRING" },
+    { "name": "pestle_factor", "dataType": "STRING" }
+  ],
+  "metricFieldSpecs": [
+    { "name": "jumlah_berita", "dataType": "LONG" },
+    { "name": "rata_panjang_artikel", "dataType": "DOUBLE" }
+  ],
+  "dateTimeFieldSpecs": [
+    {
+      "name": "bulan",
+      "dataType": "LONG",
+      "format": "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MILLISECONDS"
+    }
+  ]
+}
